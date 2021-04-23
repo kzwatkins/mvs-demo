@@ -1,0 +1,40 @@
+version: "3.1"
+services:
+        mvs_minecraft:
+                image: itzg/minecraft-server:java8
+                ports:
+                        - "25565:25565"
+                environment:
+                        EULA: "TRUE"
+                        WHITELIST: "MVS,6thGraders,7thGraders,8thGraders"
+                        OPS: "MVS"
+                        ICON: "./favicon.ico"
+                        OVERRIDE_ICON: "TRUE"
+                        MAX_PLAYERS: 2
+                        MAX_WORD_SIZE: 50
+                        ALLOW_NETHER: "FALSE"
+                        SNOOPER_ENABLED: "FALSE"
+                        MAX_BUILD_HEIGHT: 100
+                        MAX_TICK_TIME: 60000
+                        SPAWN_ANIMALS: "true"
+                        SPAWN_NPCS: "true"
+                        SPAWN_MONSTERS: "true"
+                        MODE: "creative"
+                        MOTD: "Miami Valley School Middle Schoolers will rule the world!"
+                        # LEVEL_TYPE: "LARGEBIOMES"
+                        LEVEL_TYPE: "DEMO"
+                        ONLINE_MODE: "FALSE"
+                        ALLOW_FLIGHT: "TRUE"
+                        ENFORCE_WHITELIST: "TRUE"
+                        UID: 1000
+                        GID: 1000
+                        PVP: "false"
+                        INIT_MEMORY: "1G"
+                        MAX_MEMORY: "2G"
+                        ENABLE_ROLLING_LOGS: "TRUE"
+                        # USE_AIKAR_FLAGS: "TRUE"
+                volumes:
+                        - type: bind
+                          source: ./mc-data
+                          target: /data
+
